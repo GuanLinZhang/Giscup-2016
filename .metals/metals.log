@@ -1,0 +1,687 @@
+2022.09.30 14:49:07 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/.metals/lsp.trace.json or /home/ec2-user/.cache/metals/lsp.trace.json
+2022.09.30 14:49:07 INFO  logging to file /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/.metals/metals.log
+2022.09.30 14:49:07 INFO  Started: Metals version 0.11.8 in workspace '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis' for client Visual Studio Code 1.71.2.
+2022.09.30 14:49:07 WARN  Can't instantiate JavaInteractiveSemanticdb (version: JdkVersion(8), jdkHome: /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64, javac exists: false)
+2022.09.30 14:49:07 WARN  Flyway upgrade recommended: H2 2.1.214 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.1.210.
+2022.09.30 14:49:08 INFO  time: initialize in 0.86s
+2022.09.30 14:49:09 WARN  Build server is not auto-connectable.
+2022.09.30 14:49:11 WARN  no build target for: /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/Entrance.scala
+2022.09.30 14:49:13 INFO  no build target found for /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/Entrance.scala. Using presentation compiler with project's scala-library version: 3.1.3
+2022.09.30 14:49:14 INFO  running '/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -Dsbt.version=1.7.1 -jar /tmp/metals2528664114982109935/sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'
+2022.09.30 14:49:14 WARN  no build target for: /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project/metals.sbt
+2022.09.30 14:49:14 WARN  no build target for: /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project/project/metals.sbt
+2022.09.30 14:49:14 INFO  skipping build import with status 'Started'
+2022.09.30 14:49:16 INFO  time: code lens generation in 1.56s
+2022.09.30 14:49:16 INFO  time: code lens generation in 4.54s
+2022.09.30 14:49:16 INFO  [info] Updated file /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project/build.properties: set sbt.version to 1.7.1
+2022.09.30 14:49:16 INFO  [info] welcome to sbt 1.7.1 (Amazon.com Inc. Java 1.8.0_342)
+2022.09.30 14:49:19 INFO  [info] loading settings for project project2-hotspot-analysis-build-build-build from metals.sbt ...
+2022.09.30 14:49:19 INFO  [info] loading project definition from /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project/project/project
+2022.09.30 14:49:25 INFO  [info] loading settings for project project2-hotspot-analysis-build-build from metals.sbt ...
+2022.09.30 14:49:25 INFO  [info] loading project definition from /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project/project
+2022.09.30 14:49:32 INFO  [success] Generated .bloop/project2-hotspot-analysis-build-build.json
+2022.09.30 14:49:32 INFO  [success] Total time: 6 s, completed Sep 30, 2022 2:49:32 PM
+2022.09.30 14:49:32 INFO  [info] loading settings for project project2-hotspot-analysis-build from metals.sbt,plugins.sbt ...
+2022.09.30 14:49:32 INFO  [info] loading project definition from /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project
+2022.09.30 14:49:37 INFO  [success] Generated .bloop/project2-hotspot-analysis-build.json
+2022.09.30 14:49:37 INFO  [success] Total time: 5 s, completed Sep 30, 2022 2:49:37 PM
+2022.09.30 14:49:38 INFO  [info] loading settings for project root from build.sbt ...
+2022.09.30 14:49:38 INFO  [info] set current project to Project2-Hotspot-Analysis-Template (in build file:/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/)
+2022.09.30 14:49:56 INFO  [success] Generated .bloop/root-test.json
+2022.09.30 14:49:56 INFO  [success] Generated .bloop/root.json
+2022.09.30 14:49:56 INFO  [success] Total time: 17 s, completed Sep 30, 2022 2:49:56 PM
+2022.09.30 14:49:56 INFO  time: ran 'sbt bloopInstall' in 42s
+2022.09.30 14:49:56 INFO  Attempting to connect to the build server...
+2022.09.30 14:49:56 INFO  Setting up current java home /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre in /home/ec2-user/.bloop/bloop.json
+2022.09.30 14:50:11 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/.metals/bsp.trace.json or /home/ec2-user/.cache/metals/bsp.trace.json
+2022.09.30 14:50:14 INFO  Attempting to connect to the build server...
+2022.09.30 14:50:14 INFO  Bloop uses /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre defined at /home/ec2-user/.bloop/bloop.json
+2022.09.30 14:50:14 INFO  Attempting to connect to the build server...
+2022.09.30 14:50:14 INFO  Bloop uses /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre defined at /home/ec2-user/.bloop/bloop.json
+2022.09.30 14:50:14 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project/project/.metals/bsp.trace.json or /home/ec2-user/.cache/metals/bsp.trace.json
+2022.09.30 14:50:14 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/project/.metals/bsp.trace.json or /home/ec2-user/.cache/metals/bsp.trace.json
+2022.09.30 14:50:18 INFO  time: Connected to build server in 21s
+2022.09.30 14:50:18 INFO  Connected to Build server: Bloop v1.5.3
+2022.09.30 14:50:18 INFO  time: Imported build in 0.19s
+2022.09.30 14:50:27 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 14:50:29 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 14:50:31 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 14:50:31 INFO  No mtags for 2.11.11.
+2022.09.30 14:50:33 WARN  Could not find java sources in /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/src.zip, /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/lib/src.zip, /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/src.zip, /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/lib/src.zip. Java symbols will not be available.
+2022.09.30 14:50:36 WARN  Could not find java sources in /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/src.zip, /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/lib/src.zip, /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/src.zip, /usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/lib/src.zip. Java symbols will not be available.
+2022.09.30 14:50:36 INFO  time: indexed workspace in 18s
+2022.09.30 14:50:36 INFO  No mtags for 2.11.11.
+2022.09.30 14:50:36 WARN  unsupported Scala 2.11.11
+2022.09.30 14:56:19 INFO  compiling root (5 scala sources)
+2022.09.30 14:56:33 WARN  there was one deprecation warning; re-run with -deprecation for details
+2022.09.30 14:56:33 INFO  time: compiled root in 14s
+2022.09.30 14:57:14 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 14:57:14 WARN  unsupported Scala 2.11.11
+2022.09.30 14:57:14 INFO  No mtags for 2.11.11.
+2022.09.30 14:57:14 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 2:57:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 29
+Sep 30, 2022 2:57:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31
+Sep 30, 2022 2:57:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28
+2022.09.30 15:27:38 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 15:27:41 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 15:27:41 WARN  unsupported Scala 2.11.11
+2022.09.30 15:39:21 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 15:39:21 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:24 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 15:53:24 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:24 INFO  No mtags for 2.11.11.
+2022.09.30 15:53:24 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:24 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 15:53:24 INFO  No mtags for 2.11.11.
+2022.09.30 15:53:24 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:24 INFO  No mtags for 2.11.11.
+2022.09.30 15:53:24 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:24 INFO  No mtags for 2.11.11.
+2022.09.30 15:53:24 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:28 INFO  No mtags for 2.11.11.
+2022.09.30 15:53:28 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:28 INFO  No mtags for 2.11.11.
+2022.09.30 15:53:28 WARN  unsupported Scala 2.11.11
+2022.09.30 15:53:29 INFO  No mtags for 2.11.11.
+2022.09.30 15:53:29 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 3:53:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 82
+2022.09.30 17:07:25 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 17:07:25 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:25 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:25 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:07:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 116
+Sep 30, 2022 5:07:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 122
+Sep 30, 2022 5:07:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 129
+2022.09.30 17:07:35 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:35 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:35 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:35 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:39 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:39 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:39 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:39 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:42 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:42 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:42 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:42 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:44 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:44 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:44 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:44 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:44 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:44 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:45 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:45 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:44 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:44 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:45 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:45 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:45 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:45 WARN  unsupported Scala 2.11.11
+2022.09.30 17:07:45 INFO  No mtags for 2.11.11.
+2022.09.30 17:07:45 WARN  unsupported Scala 2.11.11
+2022.09.30 17:08:08 INFO  No mtags for 2.11.11.
+2022.09.30 17:08:08 WARN  unsupported Scala 2.11.11
+2022.09.30 17:08:08 INFO  No mtags for 2.11.11.
+2022.09.30 17:08:08 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:08 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:08 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:08 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:08 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:09 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:09 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:09:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 219
+2022.09.30 17:09:14 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:14 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:14 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:14 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:09:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 244
+2022.09.30 17:09:42 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:42 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 271
+2022.09.30 17:09:47 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:47 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:47 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:47 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:47 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:47 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:48 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:48 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:52 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:52 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:52 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:52 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:52 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:52 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:53 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:53 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:53 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:53 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:53 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:53 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:53 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:53 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:53 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:53 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:09:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:09:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:04 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:04 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:30 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:30 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:30 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:30 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:35 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:35 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:35 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:35 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:35 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:35 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:35 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:35 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:37 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:37 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:10:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:10:54 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:10:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 388
+2022.09.30 17:11:09 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:09 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:09 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:09 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:09 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:09 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:10 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:10 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:11 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:11 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:11 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:11 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:11 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:11 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:12 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:12 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:12 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:12 WARN  unsupported Scala 2.11.11
+2022.09.30 17:11:12 INFO  No mtags for 2.11.11.
+2022.09.30 17:11:12 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:11:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 425
+Sep 30, 2022 5:12:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 442
+2022.09.30 17:12:46 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 17:12:46 WARN  unsupported Scala 2.11.11
+2022.09.30 17:12:46 INFO  No mtags for 2.11.11.
+2022.09.30 17:12:46 WARN  unsupported Scala 2.11.11
+2022.09.30 17:12:46 INFO  No mtags for 2.11.11.
+2022.09.30 17:12:46 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:12:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 450
+Sep 30, 2022 5:12:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 451
+Sep 30, 2022 5:12:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 452
+Sep 30, 2022 5:12:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 456
+2022.09.30 17:12:46 INFO  No mtags for 2.11.11.
+2022.09.30 17:12:46 WARN  unsupported Scala 2.11.11
+2022.09.30 17:12:46 INFO  No mtags for 2.11.11.
+2022.09.30 17:12:46 WARN  unsupported Scala 2.11.11
+2022.09.30 17:12:46 INFO  No mtags for 2.11.11.
+2022.09.30 17:12:46 WARN  unsupported Scala 2.11.11
+2022.09.30 17:12:47 INFO  No mtags for 2.11.11.
+2022.09.30 17:12:47 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:15 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:15 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:15 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:15 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:15 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:15 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:15 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:15 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:17 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:17 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:13:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 506
+2022.09.30 17:13:27 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:27 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:27 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:27 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:13:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 539
+2022.09.30 17:13:53 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:53 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:53 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:53 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:54 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:54 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:55 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:55 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:56 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:56 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:56 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:56 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:58 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:58 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:58 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:58 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:58 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:58 WARN  unsupported Scala 2.11.11
+2022.09.30 17:13:59 INFO  No mtags for 2.11.11.
+2022.09.30 17:13:59 WARN  unsupported Scala 2.11.11
+2022.09.30 17:14:01 INFO  No mtags for 2.11.11.
+2022.09.30 17:14:01 WARN  unsupported Scala 2.11.11
+2022.09.30 17:14:01 INFO  No mtags for 2.11.11.
+2022.09.30 17:14:01 WARN  unsupported Scala 2.11.11
+2022.09.30 17:14:13 INFO  No mtags for 2.11.11.
+2022.09.30 17:14:13 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:14:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 625
+Sep 30, 2022 5:16:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 664
+2022.09.30 17:38:15 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 17:38:15 WARN  unsupported Scala 2.11.11
+2022.09.30 17:38:15 INFO  No mtags for 2.11.11.
+2022.09.30 17:38:15 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:38:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 714
+2022.09.30 17:39:42 INFO  No mtags for 2.11.11.
+2022.09.30 17:39:42 WARN  unsupported Scala 2.11.11
+2022.09.30 17:40:41 INFO  No mtags for 2.11.11.
+2022.09.30 17:40:41 WARN  unsupported Scala 2.11.11
+2022.09.30 17:40:42 INFO  No mtags for 2.11.11.
+2022.09.30 17:40:42 WARN  unsupported Scala 2.11.11
+2022.09.30 17:40:42 INFO  No mtags for 2.11.11.
+2022.09.30 17:40:42 WARN  unsupported Scala 2.11.11
+2022.09.30 17:40:57 INFO  No mtags for 2.11.11.
+2022.09.30 17:40:57 WARN  unsupported Scala 2.11.11
+2022.09.30 17:41:04 INFO  compiling root (1 scala source)
+2022.09.30 17:41:04 INFO  time: compiled root in 0.87s
+2022.09.30 17:41:05 INFO  No mtags for 2.11.11.
+2022.09.30 17:41:05 WARN  unsupported Scala 2.11.11
+2022.09.30 17:41:09 INFO  compiling root (1 scala source)
+2022.09.30 17:41:09 INFO  time: compiled root in 0.87s
+2022.09.30 17:41:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:41:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:41:26 INFO  compiling root (1 scala source)
+2022.09.30 17:41:26 INFO  time: compiled root in 0.72s
+2022.09.30 17:41:39 INFO  No mtags for 2.11.11.
+2022.09.30 17:41:39 WARN  unsupported Scala 2.11.11
+2022.09.30 17:41:41 INFO  No mtags for 2.11.11.
+2022.09.30 17:41:41 WARN  unsupported Scala 2.11.11
+2022.09.30 17:41:42 INFO  compiling root (1 scala source)
+2022.09.30 17:41:42 INFO  time: compiled root in 0.65s
+2022.09.30 17:42:01 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:01 WARN  unsupported Scala 2.11.11
+2022.09.30 17:42:04 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:04 WARN  unsupported Scala 2.11.11
+2022.09.30 17:42:12 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:12 WARN  unsupported Scala 2.11.11
+2022.09.30 17:42:15 INFO  compiling root (1 scala source)
+2022.09.30 17:42:15 INFO  time: compiled root in 0.33s
+2022.09.30 17:42:20 INFO  compiling root (1 scala source)
+2022.09.30 17:42:20 INFO  time: compiled root in 0.56s
+2022.09.30 17:42:21 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:21 WARN  unsupported Scala 2.11.11
+2022.09.30 17:42:31 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:31 WARN  unsupported Scala 2.11.11
+2022.09.30 17:42:43 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:43 WARN  unsupported Scala 2.11.11
+2022.09.30 17:42:58 INFO  compiling root (1 scala source)
+2022.09.30 17:42:58 INFO  time: compiled root in 0.34s
+2022.09.30 17:42:59 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellUtils.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:42:59 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:59 WARN  unsupported Scala 2.11.11
+2022.09.30 17:42:59 INFO  No mtags for 2.11.11.
+2022.09.30 17:42:59 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:43:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 934
+2022.09.30 17:43:22 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 17:43:22 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:43:31 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 940
+2022.09.30 17:43:52 INFO  No mtags for 2.11.11.
+2022.09.30 17:43:52 WARN  unsupported Scala 2.11.11
+2022.09.30 17:43:54 INFO  compiling root (1 scala source)
+2022.09.30 17:43:54 INFO  time: compiled root in 0.3s
+2022.09.30 17:43:58 INFO  No mtags for 2.11.11.
+2022.09.30 17:43:58 WARN  unsupported Scala 2.11.11
+2022.09.30 17:43:58 INFO  No mtags for 2.11.11.
+2022.09.30 17:43:58 WARN  unsupported Scala 2.11.11
+2022.09.30 17:44:01 INFO  No mtags for 2.11.11.
+2022.09.30 17:44:01 WARN  unsupported Scala 2.11.11
+2022.09.30 17:44:01 INFO  No mtags for 2.11.11.
+2022.09.30 17:44:01 WARN  unsupported Scala 2.11.11
+2022.09.30 17:44:37 INFO  No mtags for 2.11.11.
+2022.09.30 17:44:37 WARN  unsupported Scala 2.11.11
+2022.09.30 17:44:42 INFO  No mtags for 2.11.11.
+2022.09.30 17:44:42 WARN  unsupported Scala 2.11.11
+2022.09.30 17:44:46 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:44:46 INFO  No mtags for 2.11.11.
+2022.09.30 17:44:46 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:02 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:02 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:04 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:45:04 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:04 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:04 INFO  compiling root (1 scala source)
+2022.09.30 17:45:04 INFO  time: compiled root in 0.39s
+2022.09.30 17:45:04 INFO  compiling root (1 scala source)
+2022.09.30 17:45:04 INFO  time: compiled root in 0.39s
+2022.09.30 17:45:07 INFO  compiling root (1 scala source)
+2022.09.30 17:45:07 INFO  time: compiled root in 0.62s
+2022.09.30 17:45:08 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:45:08 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:08 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:09 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:09 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:10 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:10 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:10 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:10 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:11 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:11 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:16 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:45:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:16 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:45:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:16 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:45:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:16 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:16 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:17 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:17 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:21 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:21 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:21 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:21 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:24 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:24 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:24 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:24 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:25 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:25 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:31 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:31 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:32 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:32 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:34 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 17:45:34 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:34 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:37 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:37 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:37 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:37 WARN  unsupported Scala 2.11.11
+2022.09.30 17:45:39 INFO  No mtags for 2.11.11.
+2022.09.30 17:45:39 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 5:46:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1083
+2022.09.30 17:46:04 INFO  No mtags for 2.11.11.
+2022.09.30 17:46:04 WARN  unsupported Scala 2.11.11
+2022.09.30 17:50:45 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 17:50:45 WARN  unsupported Scala 2.11.11
+2022.09.30 17:50:55 INFO  No mtags for 2.11.11.
+2022.09.30 17:50:55 WARN  unsupported Scala 2.11.11
+2022.09.30 17:51:41 INFO  No mtags for 2.11.11.
+2022.09.30 17:51:41 WARN  unsupported Scala 2.11.11
+2022.09.30 17:52:28 INFO  No mtags for 2.11.11.
+2022.09.30 17:52:28 WARN  unsupported Scala 2.11.11
+2022.09.30 17:52:28 INFO  No mtags for 2.11.11.
+2022.09.30 17:52:28 WARN  unsupported Scala 2.11.11
+2022.09.30 17:52:59 INFO  No mtags for 2.11.11.
+2022.09.30 17:52:59 WARN  unsupported Scala 2.11.11
+2022.09.30 18:03:54 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 18:03:54 WARN  unsupported Scala 2.11.11
+2022.09.30 18:03:54 INFO  No mtags for 2.11.11.
+2022.09.30 18:03:54 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:10 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:10 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:15 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:15 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:15 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:15 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:15 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:15 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:28 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:28 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:28 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:28 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:30 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:30 WARN  unsupported Scala 2.11.11
+2022.09.30 18:04:30 INFO  No mtags for 2.11.11.
+2022.09.30 18:04:30 WARN  unsupported Scala 2.11.11
+2022.09.30 18:05:39 INFO  compiling root (1 scala source)
+2022.09.30 18:05:39 INFO  time: compiled root in 0.25s
+2022.09.30 18:05:43 INFO  compiling root (1 scala source)
+2022.09.30 18:05:43 INFO  time: compiled root in 0.22s
+2022.09.30 18:05:51 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotzoneAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:05:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:05:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:05:51 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotzoneAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:05:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:05:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:05:51 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotzoneAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:05:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:05:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:05:51 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotzoneAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:05:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:05:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:05:51 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotzoneAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:05:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:05:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:05:51 INFO  compiling root (1 scala source)
+2022.09.30 18:05:51 INFO  time: compiled root in 0.58s
+2022.09.30 18:05:54 INFO  compiling root (1 scala source)
+2022.09.30 18:05:54 INFO  time: compiled root in 0.69s
+2022.09.30 18:06:19 INFO  No mtags for 2.11.11.
+2022.09.30 18:06:19 WARN  unsupported Scala 2.11.11
+2022.09.30 18:07:41 INFO  No mtags for 2.11.11.
+2022.09.30 18:07:41 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:41 INFO  compiling root (1 scala source)
+2022.09.30 18:09:41 INFO  time: compiled root in 0.2s
+2022.09.30 18:09:46 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 18:09:46 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1314
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1317
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1321
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1320
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1322
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1329
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1327
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1326
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1330
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1308
+2022.09.30 18:09:46 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:46 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1328
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1324
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1335
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1333
+Sep 30, 2022 6:09:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1337
+2022.09.30 18:09:46 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:46 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:47 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:47 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:47 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:47 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:48 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:48 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:50 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:50 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:50 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:50 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:54 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:54 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:54 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:54 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:56 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:56 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:56 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:56 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:57 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:57 WARN  unsupported Scala 2.11.11
+2022.09.30 18:09:57 INFO  No mtags for 2.11.11.
+2022.09.30 18:09:57 WARN  unsupported Scala 2.11.11
+2022.09.30 18:10:03 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotzoneAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:10:03 INFO  No mtags for 2.11.11.
+2022.09.30 18:10:03 WARN  unsupported Scala 2.11.11
+2022.09.30 18:10:03 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotzoneAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:10:03 INFO  No mtags for 2.11.11.
+2022.09.30 18:10:03 WARN  unsupported Scala 2.11.11
+2022.09.30 18:10:03 INFO  compiling root (1 scala source)
+2022.09.30 18:10:03 INFO  time: compiled root in 0.53s
+2022.09.30 18:11:04 INFO  No mtags for 2.11.11.
+2022.09.30 18:11:04 WARN  unsupported Scala 2.11.11
+2022.09.30 18:15:29 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 18:15:29 WARN  unsupported Scala 2.11.11
+2022.09.30 18:15:40 INFO  No mtags for 2.11.11.
+2022.09.30 18:15:40 WARN  unsupported Scala 2.11.11
+2022.09.30 18:16:26 INFO  No mtags for 2.11.11.
+2022.09.30 18:16:26 WARN  unsupported Scala 2.11.11
+2022.09.30 18:16:26 INFO  No mtags for 2.11.11.
+2022.09.30 18:16:26 WARN  unsupported Scala 2.11.11
+2022.09.30 18:16:28 INFO  No mtags for 2.11.11.
+2022.09.30 18:16:28 WARN  unsupported Scala 2.11.11
+2022.09.30 18:19:19 INFO  No mtags for 2.11.11.
+2022.09.30 18:19:19 WARN  unsupported Scala 2.11.11
+2022.09.30 18:19:21 INFO  No mtags for 2.11.11.
+2022.09.30 18:19:21 WARN  unsupported Scala 2.11.11
+2022.09.30 18:19:21 INFO  No mtags for 2.11.11.
+2022.09.30 18:19:21 WARN  unsupported Scala 2.11.11
+2022.09.30 18:19:21 INFO  No mtags for 2.11.11.
+2022.09.30 18:19:21 WARN  unsupported Scala 2.11.11
+2022.09.30 18:19:49 INFO  compiling root (1 scala source)
+2022.09.30 18:19:49 INFO  time: compiled root in 0.26s
+2022.09.30 18:19:49 INFO  compiling root (1 scala source)
+2022.09.30 18:19:49 INFO  time: compiled root in 0.3s
+2022.09.30 18:19:50 INFO  No mtags for 2.11.11.
+2022.09.30 18:19:50 WARN  unsupported Scala 2.11.11
+2022.09.30 18:19:50 INFO  No mtags for 2.11.11.
+2022.09.30 18:19:50 WARN  unsupported Scala 2.11.11
+2022.09.30 18:19:50 INFO  No mtags for 2.11.11.
+2022.09.30 18:19:50 WARN  unsupported Scala 2.11.11
