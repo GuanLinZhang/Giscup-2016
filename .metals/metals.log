@@ -685,3 +685,91 @@ Error downloading org.scalameta:mtags_2.11.11:0.11.8
 2022.09.30 18:19:50 WARN  unsupported Scala 2.11.11
 2022.09.30 18:19:50 INFO  No mtags for 2.11.11.
 2022.09.30 18:19:50 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 6:23:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1571
+2022.09.30 18:23:48 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:23:48 INFO  compiling root (1 scala source)
+2022.09.30 18:23:48 INFO  time: compiled root in 0.3s
+2022.09.30 18:23:48 INFO  compiling root (1 scala source)
+2022.09.30 18:23:48 INFO  time: compiled root in 0.27s
+2022.09.30 18:23:51 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 18:23:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:23:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:51 INFO  No mtags for 2.11.11.
+2022.09.30 18:23:51 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:55 INFO  No mtags for 2.11.11.
+2022.09.30 18:23:55 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:55 INFO  No mtags for 2.11.11.
+2022.09.30 18:23:55 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:55 INFO  No mtags for 2.11.11.
+2022.09.30 18:23:55 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:55 INFO  No mtags for 2.11.11.
+2022.09.30 18:23:55 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:55 INFO  No mtags for 2.11.11.
+2022.09.30 18:23:55 WARN  unsupported Scala 2.11.11
+2022.09.30 18:23:56 INFO  compiling root (2 scala sources)
+2022.09.30 18:23:56 INFO  time: compiled root in 0.26s
+2022.09.30 18:24:13 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:24:13 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:13 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:13 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:24:13 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:13 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:13 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:24:14 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:14 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:13 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:24:14 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:14 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:14 INFO  compiling root (2 scala sources)
+2022.09.30 18:24:14 INFO  time: compiled root in 0.54s
+2022.09.30 18:24:19 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:19 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:24 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:24 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:24 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:24:24 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:24 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:24 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:24:24 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:24 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:27 ERROR code navigation does not work for the file '/home/ec2-user/dbms/Q6/Project2-Hotspot-Analysis/src/main/scala/project2/HotcellAnalysis.scala' because the Scala version 2.11.11 is not supported. To fix this problem, change the Scala version to 2.12.16 or 2.13.8 or 3.1.3.
+2022.09.30 18:24:27 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:27 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:31 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:31 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:31 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:31 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:33 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:33 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:44 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:44 WARN  unsupported Scala 2.11.11
+2022.09.30 18:24:52 INFO  No mtags for 2.11.11.
+2022.09.30 18:24:52 WARN  unsupported Scala 2.11.11
+Sep 30, 2022 6:24:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1645
+2022.09.30 18:26:50 INFO  No mtags for 2.11.11.
+2022.09.30 18:26:50 WARN  unsupported Scala 2.11.11
+2022.09.30 18:29:47 ERROR Failed to fetch mtags for 2.11.11
+Error downloading org.scalameta:mtags_2.11.11:0.11.8
+  not found: /home/ec2-user/.ivy2/local/org.scalameta/mtags_2.11.11/0.11.8/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.11.11/0.11.8/mtags_2.11.11-0.11.8.pom
+2022.09.30 18:29:47 WARN  unsupported Scala 2.11.11
+2022.09.30 18:30:05 INFO  No mtags for 2.11.11.
+2022.09.30 18:30:05 WARN  unsupported Scala 2.11.11
+2022.09.30 18:30:05 INFO  No mtags for 2.11.11.
+2022.09.30 18:30:05 WARN  unsupported Scala 2.11.11
+2022.09.30 18:30:07 INFO  No mtags for 2.11.11.
+2022.09.30 18:30:07 WARN  unsupported Scala 2.11.11
+2022.09.30 18:30:52 INFO  No mtags for 2.11.11.
+2022.09.30 18:30:52 WARN  unsupported Scala 2.11.11
+2022.09.30 18:31:00 INFO  No mtags for 2.11.11.
+2022.09.30 18:31:00 WARN  unsupported Scala 2.11.11

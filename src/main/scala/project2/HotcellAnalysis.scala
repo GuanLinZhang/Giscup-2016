@@ -43,43 +43,39 @@ def runHotcellAnalysis(spark: SparkSession, pointPath: String): DataFrame =
   val numCells = (maxX - minX + 1)*(maxY - minY + 1)*(maxZ - minZ + 1)
 
   // YOU NEED TO CHANGE THIS PART
+  
+    pickupInfo.createOrReplaceTempView("pickupInfoView")
+    pickupInfo = spark.sql("select x,y,z from pickupInfoView where x>= " + minX + " and x<= " + maxX + " and y>= " + minY + " and y<= " + maxY + " and z>= " + minZ + " and z<= " + maxZ + " order by z,y,x")
+    pickupInfo.createOrReplaceTempView("cells")
 
-  // return pickupInfo // YOU NEED TO CHANGE THIS PART
-      spark.udf.register("sq", (inputX: Int) => HotcellUtils.sq(inputX))
-    spark.udf.register("CountNeigh", (minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int, inputX: Int, inputY: Int, inputZ: Int)
-    => HotcellUtils.CalculateNeighbors(minX, minY, minZ, maxX, maxY, maxZ, inputX, inputY, inputZ))
+    pickupInfo = spark.sql("select x, y, z, count(*) as hotCells from cells group by x, y, z order by z,y,x")
+    pickupInfo.createOrReplaceTempView("selectedCellHotness")
 
-    spark.udf.register("GScore", (x: Int, y: Int, z: Int, num_adjCells: Int, sum_adjCells: Int, numcells: Int, mean: Double, sd: Double) => HotcellUtils.calculateGScore(x, y, z, num_adjCells, sum_adjCells, numcells, mean, sd))
+    val sumChosenCells = spark.sql("select sum(hotCells) as sumHotCells from selectedCellHotness")
+    sumChosenCells.createOrReplaceTempView("sumChosenCells")
 
-    val ip_Points = spark.sql("select x, y, z from pickupinfo where x >= " + minX + " and y >= " + minY  + " and z >= " + minZ + " and x <= " + maxX + " and y <= " + maxY +  " and z <= " + maxZ + " order by z, y, x").persist()
-    ip_Points.createOrReplaceTempView("ip_Points")
-    ip_Points.show()
+    val mean = (sumChosenCells.first().getLong(0).toDouble / numCells.toDouble).toDouble
 
-    val count_Points = spark.sql("select x, y, z, count(*) as point_Value from ip_Points group by z, y, x order by z, y, x").persist()
-    count_Points.createOrReplaceTempView("count_Points")
-    count_Points.show()
+    spark.udf.register("square", (x: Int) => (((x*x).toDouble)))
 
-    val sum_Points = spark.sql("select sum(point_Value) as sum_Value, sum(sq(point_Value)) as sqSum from count_Points")
-    sum_Points.createOrReplaceTempView("sum_Points")
-    sum_Points.show()
+    val sumOfSquares = spark.sql("select sum(square(hotCells)) as sumOfSquares from selectedCellHotness")
+    sumOfSquares.createOrReplaceTempView("sumOfSquares")
 
-    val sum_Value = sum_Points.first().getLong(0)
-    val sqSum = sum_Points.first().getDouble(1)
+    val sd = scala.math.sqrt(((sumOfSquares.first().getDouble(0).toDouble/numCells.toDouble)-(mean.toDouble * mean.toDouble))).toDouble
 
-    val mean = sum_Value.toDouble / numCells.toDouble
-    val SD = math.sqrt((sqSum.toDouble / numCells.toDouble) - (mean.toDouble * mean.toDouble))
+    spark.udf.register("neighbouringCells", (inputX: Int, inputY: Int, inputZ: Int, minX: Int, maxX: Int, minY: Int, maxY: Int, minZ: Int, maxZ: Int) => ((HotcellUtils.getNumberOfNeighbours(inputX, inputY, inputZ, minX, minY, minZ, maxX, maxY, maxZ))))
 
-    val Neighbors = spark.sql("select CountNeigh(" + minX + "," + minY + "," + minZ + "," + maxX + "," + maxY + "," + maxZ + "," + "a1.x, a1.y, a1.z) as num_n, count(*) as countAll, a1.x as x, a1.y as y, a1.z as z, sum(a2.point_Value) as total_Value from count_points as a1, count_Points as a2 where (a2.x = a1.x + 1 or a2.x = a1.x or a2.x = a1.x - 1) and (a2.y = a1.y + 1 or a2.y = a1.y or a2.y =a1.y - 1) and (a2.z = a1.z + 1 or a2.z = a1.z or a2.z = a1.z - 1) group by a1.z, a1.y, a1.x order by a1.z, a1.y, a1.x").persist()
-    Neighbors.createOrReplaceTempView("NeighCount")
-    Neighbors.show()
+    val neighbouringCells = spark.sql("select neighbouringCells(sch1.x, sch1.y, sch1.z, " + minX + "," + maxX + "," + minY + "," + maxY + "," + minZ + "," + maxZ + ") as countOfNeighbours, sch1.x as x, sch1.y as y, sch1.z as z, sum(sch2.hotCells) as sumHotCells from selectedCellHotness as sch1, selectedCellHotness as sch2 where (sch2.x = sch1.x+1 or sch2.x = sch1.x or sch2.x = sch1.x-1) and (sch2.y = sch1.y+1 or sch2.y = sch1.y or sch2.y = sch1.y-1) and (sch2.z = sch1.z+1 or sch2.z = sch1.z or sch2.z = sch1.z-1) group by sch1.z, sch1.y, sch1.x order by sch1.z, sch1.y, sch1.x")
+    neighbouringCells.createOrReplaceTempView("neighbouringCells")
 
-    val GScoreDF = spark.sql("select GScore(x, y, z, num_n, total_Value, "+ numCells + ", " + mean + ", " + SD + ") as gscore, x, y, z from NeighCount order by gscore desc");
-    GScoreDF.createOrReplaceTempView("GScoreDF")
-    GScoreDF.show()
+    spark.udf.register("GScore", (countOfNeighbours: Int, sumHotCells: Int, numCells: Int, x: Int, y: Int, z: Int, mean: Double, sd: Double) => ((HotcellUtils.getGscore(countOfNeighbours, sumHotCells, numCells, x, y, z, mean, sd))))
 
-    val lastresult = spark.sql("select x, y, z from GScoreDF")
-    lastresult.createOrReplaceTempView("lastresult")
-    lastresult.show()
-    lastresult  
+    pickupInfo = spark.sql("select GScore(countOfNeighbours, sumHotCells, "+ numCells + ", x, y, z," + mean + ", " + sd + ") as getisOrdStatistic, x, y, z from neighbouringCells order by getisOrdStatistic desc");
+    pickupInfo.createOrReplaceTempView("GScore")
+
+    pickupInfo = spark.sql("select x, y, z from GScore")
+    pickupInfo.createOrReplaceTempView("finalPickupInfo")
+    return pickupInfo
+
 }
 }
