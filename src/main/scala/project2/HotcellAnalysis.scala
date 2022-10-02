@@ -11,71 +11,150 @@ object HotcellAnalysis {
   Logger.getLogger("akka").setLevel(Level.WARN)
   Logger.getLogger("com").setLevel(Level.WARN)
 
-def runHotcellAnalysis(spark: SparkSession, pointPath: String): DataFrame =
-{
-  // Load the original data from a data source
-  var pickupInfo = spark.read.format("com.databricks.spark.csv").option("delimiter",";").option("header","false").load(pointPath);
-  pickupInfo.createOrReplaceTempView("nyctaxitrips")
-  pickupInfo.show()
+  def runHotcellAnalysis(spark: SparkSession, pointPath: String): DataFrame = {
+    // Load the original data from a data source
+    var pickupInfo = spark.read
+      .format("com.databricks.spark.csv")
+      .option("delimiter", ";")
+      .option("header", "false")
+      .load(pointPath);
+    pickupInfo.createOrReplaceTempView("nyctaxitrips")
+    pickupInfo.show()
 
-  // Assign cell coordinates based on pickup points
-  spark.udf.register("CalculateX",(pickupPoint: String)=>((
-    HotcellUtils.CalculateCoordinate(pickupPoint, 0)
-    )))
-  spark.udf.register("CalculateY",(pickupPoint: String)=>((
-    HotcellUtils.CalculateCoordinate(pickupPoint, 1)
-    )))
-  spark.udf.register("CalculateZ",(pickupTime: String)=>((
-    HotcellUtils.CalculateCoordinate(pickupTime, 2)
-    )))
-  pickupInfo = spark.sql("select CalculateX(nyctaxitrips._c5),CalculateY(nyctaxitrips._c5), CalculateZ(nyctaxitrips._c1) from nyctaxitrips")
-  var newCoordinateName = Seq("x", "y", "z")
-  pickupInfo = pickupInfo.toDF(newCoordinateName:_*)
-  pickupInfo.show()
+    // Assign cell coordinates based on pickup points
+    spark.udf.register(
+      "CalculateX",
+      (pickupPoint: String) =>
+        ((
+          HotcellUtils.CalculateCoordinate(
+            pickupPoint,
+            0
+          )
+        ))
+    )
+    spark.udf.register(
+      "CalculateY",
+      (pickupPoint: String) =>
+        ((
+          HotcellUtils.CalculateCoordinate(
+            pickupPoint,
+            1
+          )
+        ))
+    )
+    spark.udf.register(
+      "CalculateZ",
+      (pickupTime: String) =>
+        ((
+          HotcellUtils.CalculateCoordinate(
+            pickupTime,
+            2
+          )
+        ))
+    )
+    pickupInfo = spark.sql(
+      "select CalculateX(nyctaxitrips._c5),CalculateY(nyctaxitrips._c5), CalculateZ(nyctaxitrips._c1) from nyctaxitrips"
+    )
+    var newCoordinateName = Seq("x", "y", "z")
+    pickupInfo = pickupInfo.toDF(newCoordinateName: _*)
+    pickupInfo.show()
 
-  // Define the min and max of x, y, z
-  val minX = -74.50/HotcellUtils.coordinateStep
-  val maxX = -73.70/HotcellUtils.coordinateStep
-  val minY = 40.50/HotcellUtils.coordinateStep
-  val maxY = 40.90/HotcellUtils.coordinateStep
-  val minZ = 1
-  val maxZ = 31
-  val numCells = (maxX - minX + 1)*(maxY - minY + 1)*(maxZ - minZ + 1)
+    // Define the min and max of x, y, z
+    val minX = -74.50 / HotcellUtils.coordinateStep
+    val maxX = -73.70 / HotcellUtils.coordinateStep
+    val minY = 40.50 / HotcellUtils.coordinateStep
+    val maxY = 40.90 / HotcellUtils.coordinateStep
+    val minZ = 1
+    val maxZ = 31
+    val numCells = (maxX - minX + 1) * (maxY - minY + 1) * (maxZ - minZ + 1)
 
-  // YOU NEED TO CHANGE THIS PART
-  
-    pickupInfo.createOrReplaceTempView("pickupInfoView")
-    pickupInfo = spark.sql("select x,y,z from pickupInfoView where x>= " + minX + " and x<= " + maxX + " and y>= " + minY + " and y<= " + maxY + " and z>= " + minZ + " and z<= " + maxZ + " order by z,y,x")
-    pickupInfo.createOrReplaceTempView("cells")
+    // YOU NEED TO CHANGE THIS PART
+    val nCells = numCells.toDouble
 
-    pickupInfo = spark.sql("select x, y, z, count(*) as hotCells from cells group by x, y, z order by z,y,x")
-    pickupInfo.createOrReplaceTempView("selectedCellHotness")
+    pickupInfo.createOrReplaceTempView("pickupInfo")
 
-    val sumChosenCells = spark.sql("select sum(hotCells) as sumHotCells from selectedCellHotness")
-    sumChosenCells.createOrReplaceTempView("sumChosenCells")
+    val freqSQL =
+      "select x, y, z, count(*) as frequency from pickupInfo where x between %f and %f and y between %f and %f and z between %d and %d group by x, y, z"
 
-    val mean = (sumChosenCells.first().getLong(0).toDouble / numCells.toDouble).toDouble
+    val pickupPointsCountsDF =
+      spark.sql(freqSQL.format(minX, maxX, minY, maxY, minZ, maxZ))
 
-    spark.udf.register("square", (x: Int) => (((x*x).toDouble)))
+    pickupPointsCountsDF.createOrReplaceTempView("pickupPointsCounts")
 
-    val sumOfSquares = spark.sql("select sum(square(hotCells)) as sumOfSquares from selectedCellHotness")
-    sumOfSquares.createOrReplaceTempView("sumOfSquares")
+    // Calculate sigma Xi and sigma X square i
+    val totalFreqDF = spark.sql(
+      "select sum(frequency), sum(frequency*frequency) from pickupPointsCounts"
+    )
 
-    val sd = scala.math.sqrt(((sumOfSquares.first().getDouble(0).toDouble/numCells.toDouble)-(mean.toDouble * mean.toDouble))).toDouble
+    // Value of X bar
+    val X = totalFreqDF.first().getLong(0).toDouble / nCells
 
-    spark.udf.register("neighbouringCells", (inputX: Int, inputY: Int, inputZ: Int, minX: Int, maxX: Int, minY: Int, maxY: Int, minZ: Int, maxZ: Int) => ((HotcellUtils.getNumberOfNeighbours(inputX, inputY, inputZ, minX, minY, minZ, maxX, maxY, maxZ))))
+    // Value of S
+    val S = Math.sqrt(totalFreqDF.first().getLong(1).toDouble / nCells - X * X)
 
-    val neighbouringCells = spark.sql("select neighbouringCells(sch1.x, sch1.y, sch1.z, " + minX + "," + maxX + "," + minY + "," + maxY + "," + minZ + "," + maxZ + ") as countOfNeighbours, sch1.x as x, sch1.y as y, sch1.z as z, sum(sch2.hotCells) as sumHotCells from selectedCellHotness as sch1, selectedCellHotness as sch2 where (sch2.x = sch1.x+1 or sch2.x = sch1.x or sch2.x = sch1.x-1) and (sch2.y = sch1.y+1 or sch2.y = sch1.y or sch2.y = sch1.y-1) and (sch2.z = sch1.z+1 or sch2.z = sch1.z or sch2.z = sch1.z-1) group by sch1.z, sch1.y, sch1.x order by sch1.z, sch1.y, sch1.x")
-    neighbouringCells.createOrReplaceTempView("neighbouringCells")
+    spark.udf.register(
+      "findNeighbors",
+      (
+          maxX: Double,
+          minX: Double,
+          maxY: Double,
+          minY: Double,
+          maxZ: Int,
+          minZ: Int,
+          X: Double,
+          Y: Double,
+          Z: Int
+      ) =>
+        ((
+          HotcellUtils.findNeighbors(
+            maxX,
+            minX,
+            maxY,
+            minY,
+            maxZ,
+            minZ,
+            X,
+            Y,
+            Z
+          )
+        ))
+    )
 
-    spark.udf.register("GScore", (countOfNeighbours: Int, sumHotCells: Int, numCells: Int, x: Int, y: Int, z: Int, mean: Double, sd: Double) => ((HotcellUtils.getGscore(countOfNeighbours, sumHotCells, numCells, x, y, z, mean, sd))))
+    val WiXi_SQL =
+      "select findNeighbors( %f, %f, %f, %f, %d, %d, a.x, a.y, a.z) as Wij, sum(b.frequency) as Xj, a.x as X, a.y as Y, a.z as Z from pickupPointsCounts a, pickupPointsCounts b where" +
+        " (b.x = a.x or b.x = a.x + 1 or b.x = a.x - 1) and (b.y = a.y or b.y = a.y + 1 or b.y = a.y - 1) and (b.z = a.z or b.z = a.z + 1 or b.z = a.z - 1) group by a.x,a.y,a.z"
 
-    pickupInfo = spark.sql("select GScore(countOfNeighbours, sumHotCells, "+ numCells + ", x, y, z," + mean + ", " + sd + ") as getisOrdStatistic, x, y, z from neighbouringCells order by getisOrdStatistic desc");
-    pickupInfo.createOrReplaceTempView("GScore")
+    // Calculate Wij and Xi
+    val WiXiDF = spark.sql(WiXi_SQL.format(maxX, minX, maxY, minY, maxZ, minZ))
 
-    pickupInfo = spark.sql("select x, y, z from GScore")
-    pickupInfo.createOrReplaceTempView("finalPickupInfo")
-    return pickupInfo
+    WiXiDF.createOrReplaceTempView("WiXiValues")
 
-}
+    spark.udf.register(
+      "calculateZ",
+      (w: Double, sumX: Double, s: Double, nCells: Double, xBar: Double) =>
+        ((
+          HotcellUtils.calculateZ(
+            w,
+            sumX,
+            s,
+            nCells,
+            xBar
+          )
+        ))
+    )
+
+    val zScoreSQL =
+      "select x, y, z, calculateZ(Wij, Xj, %f, %f, %f) as ZScore from WiXiValues"
+
+    // Calculte GScore
+    val zScoreDF = spark.sql(zScoreSQL.format(S, nCells, X))
+
+    zScoreDF.createOrReplaceTempView("zScore")
+
+    val resultSet =
+      spark.sql("select x, y, z from zScore order by ZScore DESC limit 50")
+
+    return resultSet
+
+  }
 }
