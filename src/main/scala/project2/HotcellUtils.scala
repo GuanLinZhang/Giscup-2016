@@ -3,6 +3,7 @@ package project2
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import scala.collection.mutable.ListBuffer
 
 object HotcellUtils {
   val coordinateStep = 0.01
@@ -57,57 +58,41 @@ object HotcellUtils {
   }
 
   // YOU NEED TO CHANGE THIS PART
-  def findNeighbors(
-      maxX: Double,
+
+  def CalculateG(
       minX: Double,
-      maxY: Double,
+      maxX: Double,
       minY: Double,
-      maxZ: Int,
-      minZ: Int,
-      x: Double,
-      y: Double,
-      z: Int
-  ): Int = {
-    var n = 0
-
-    if (x == maxX || x == minX) {
-      n = n + 1
-    }
-
-    if (y == maxY || y == minY) {
-      n = n + 1
-    }
-
-    if (z == maxZ || z == minZ) {
-      n = n + 1
-    }
-
-    if (n == 1) {
-      return 17
-    }
-
-    if (n == 2) {
-      return 11
-    }
-
-    if (n == 3) {
-      return 7
-    }
-
-    return 26
-
-  }
-
-  def calculateZ(
-      w: Double,
-      sumX: Double,
-      s: Double,
+      maxY: Double,
+      minZ: Double,
+      maxZ: Double,
       numCells: Double,
-      xBar: Double
+      meanXj: Double,
+      SXj: Double,
+      curX: Int,
+      curY: Int,
+      curZ: Int,
+      curNXj: Int
   ): Double = {
-    val numerator = sumX - xBar * w
-    val denominator = s * Math.sqrt((numCells * w - w * w) / (numCells - 1.0))
-    return numerator / denominator
+    var Wij = 27
+    if (curX == minX || curX == maxX) {
+      Wij = 18
+      if (curY == minY || curY == maxY) {
+        Wij = 12
+        if (curZ == minZ || curZ == maxZ) {
+          Wij = 8
+        }
+      }
+    }
+
+    val numerator = curNXj - (meanXj * Wij)
+    val in1 = numCells * Wij
+    val in2 = Wij * Wij
+    val in3 = in1 - in2
+    val in4 = math.sqrt(in3 / (numCells - 1))
+    val denominator = SXj * in4
+    val G = numerator / denominator
+    return G
   }
 
 }
