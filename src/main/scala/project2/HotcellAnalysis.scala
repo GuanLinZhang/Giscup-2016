@@ -69,91 +69,60 @@ object HotcellAnalysis {
     val numCells = (maxX - minX + 1) * (maxY - minY + 1) * (maxZ - minZ + 1)
 
     // YOU NEED TO CHANGE THIS PART
-    val sumXj = pickupInfo.count()
-    val countDf =
-      pickupInfo.groupBy("x", "y", "z").count().withColumnRenamed("count", "Xj")
-    // countDf.show()
-
-    // val squares = countDf.selectExpr("(Xj * Xj) as sqr").select(sum("sqr"))
-    val squares = countDf.selectExpr("(Xj * Xj) as sqr")
-    // squares.show()
-
-    val sumofsq = squares.agg(sum("sqr")).first.getLong(0)
-    val meanXj = sumXj / numCells
-    val in1 = sumofsq.toDouble / numCells
-    val in2 = meanXj * meanXj
-    val SXj = math.sqrt(in1 - in2)
-
-    // printf("Sum Xj =  %d\n", sumXj)
-    // printf("Total cells =  %f\n", numCells)
-    // printf("Mean Xj =  %f\n", meanXj)
-    // printf("sum of squares: %d\n", sumofsq)
-    // printf("SD: %f\n", SXj)
-
-    val withneighborcountDf = countDf
-      .as("count1")
-      .join(
-        countDf.as("count2"),
-        (col("count1.x") === col("count2.x") || col("count1.x") === col(
-          "count2.x"
-        ) - 1 || col("count1.x") === col("count2.x") + 1) && (col(
-          "count1.y"
-        ) === col("count2.y") || col("count1.y") === col("count2.y") - 1 || col(
-          "count1.y"
-        ) === col("count2.y") + 1) && (col("count1.z") === col(
-          "count2.z"
-        ) || col("count1.z") === col("count2.z") - 1 || col("count1.z") === col(
-          "count2.z"
-        ) + 1),
-        "inner"
-      )
-      .select(
-        col("count1.x").as("x"),
-        col("count1.y").as("y"),
-        col("count1.z").as("z"),
-        col("count2.Xj").as("NXj")
-      )
-
-    // withneighborcountDf.show(50)
-
-    val sumNXj = withneighborcountDf
+    pickupInfo = pickupInfo
       .groupBy("x", "y", "z")
-      .agg(sum("NXj"))
-      .withColumnRenamed("sum(NXj)", "sumNXj")
-    sumNXj.createOrReplaceTempView("sumNXj")
-    // sumNXj.show(50)
+      .count()
+      .withColumnRenamed("count", "pointsCount")
+    pickupInfo.createOrReplaceTempView("pickupInfo")
+    val d = numCells.toDouble
+    val n = pickupInfo.agg(sum("pointsCount")).first().getLong(0).toDouble
+    val mx = n / d
 
+    val std = Math.sqrt(
+      (pickupInfo
+        .select(pow("pointsCount", 2) as "squarePointsCount")
+        .agg(sum("squarePointsCount"))
+        .first()
+        .getDouble(0) / numCells.toDouble) - Math.pow(mx, 2)
+    )
+    pickupInfo = spark.sql(
+      "SELECT PI1.x, PI1.y, PI1.z, SUM(PI2.pointsCount) AS sumNPt FROM pickupInfo AS PI1, pickupInfo AS PI2 WHERE PI2.x BETWEEN PI1.x-1 AND PI1.x+1 AND PI2.y BETWEEN PI1.y-1 AND PI1.y+1 AND PI2.z BETWEEN PI1.z-1 AND PI1.z+1 GROUP BY PI1.x, PI1.y, PI1.z"
+    )
+    pickupInfo.createOrReplaceTempView("pickupInfo")
     spark.udf.register(
-      "CalculateG",
-      (curX: Int, curY: Int, curZ: Int, curNXj: Int) =>
-        ((
-          HotcellUtils.CalculateG(
-            minX,
-            maxX,
-            minY,
-            maxY,
-            minZ,
-            maxZ,
-            numCells,
-            meanXj,
-            SXj,
-            curX,
-            curY,
-            curZ,
-            curNXj
-          )
-        ))
+      "totalNeighbours",
+      (
+          x: Int,
+          y: Int,
+          z: Int,
+          xMin: Int,
+          yMin: Int,
+          zMin: Int,
+          xMax: Int,
+          yMax: Int,
+          zMax: Int
+      ) =>
+        (HotcellUtils
+          .totalNeighbours(x, y, z, xMin, yMin, zMin, xMax, yMax, zMax))
     )
-    val withGscore = spark.sql(
-      "select *, CalculateG(a.x,a.y,a.z,a.sumNXj) as Gscore from sumNXj as a"
+    pickupInfo = spark.sql(
+      "SELECT x, y, z, totalNeighbours(x, y, z, " + minX + "," + minY + "," + minZ + "," + maxX + "," + maxY + "," + maxY + ") as noN, sumNPt FROM pickupInfo"
     )
-    val descCells = withGscore
-      .orderBy(col("Gscore").desc)
+    pickupInfo.createOrReplaceTempView("pickupInfo")
+    spark.udf.register(
+      "calcZ",
+      (sumNPt: Int, mx: Double, noN: Int, std: Double, numCells: Int) =>
+        (HotcellUtils.calcZ(sumNPt, mx, noN, std, numCells))
+    )
+    pickupInfo = spark
+      .sql(
+        "SELECT x, y, z, calcZ(pickupInfo.sumNPt, " + mx + ", pickupInfo.noN, " + std + ", " + numCells + ") AS zscore " + "FROM pickupInfo"
+      )
+      .orderBy(desc("zscore"))
+      .select("x", "y", "z", "zscore")
       .limit(50)
-      .select(col("x"), col("y"), col("z"), col("Gscore"))
-    descCells.createOrReplaceTempView("descCells")
-    descCells.show(50)
+    pickupInfo.show(50)
+    return pickupInfo
 
-    return descCells
   }
 }

@@ -3,7 +3,6 @@ package project2
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import scala.collection.mutable.ListBuffer
 
 object HotcellUtils {
   val coordinateStep = 0.01
@@ -58,41 +57,48 @@ object HotcellUtils {
   }
 
   // YOU NEED TO CHANGE THIS PART
-
-  def CalculateG(
-      minX: Double,
-      maxX: Double,
-      minY: Double,
-      maxY: Double,
-      minZ: Double,
-      maxZ: Double,
-      numCells: Double,
-      meanXj: Double,
-      SXj: Double,
-      curX: Int,
-      curY: Int,
-      curZ: Int,
-      curNXj: Int
-  ): Double = {
-    var Wij = 27
-    if (curX == minX || curX == maxX) {
-      Wij = 18
-      if (curY == minY || curY == maxY) {
-        Wij = 12
-        if (curZ == minZ || curZ == maxZ) {
-          Wij = 8
-        }
-      }
+  def totalNeighbours(
+      x: Int,
+      y: Int,
+      z: Int,
+      xMin: Int,
+      yMin: Int,
+      zMin: Int,
+      xMax: Int,
+      yMax: Int,
+      zMax: Int
+  ): Int = {
+    var noN = 27
+    var offI = 0
+    val off = List(9, 6, 4)
+    if (x == xMin | x == xMax) {
+      noN -= off(offI)
+      offI += 1
     }
+    if (y == yMin | y == yMax) {
+      noN -= off(offI)
+      offI += 1
+    }
+    if (z == zMin | z == zMax) {
+      noN -= off(offI)
+      offI += 1
+    }
+    noN = noN.toInt
+    return (noN)
+  }
 
-    val numerator = curNXj - (meanXj * Wij)
-    val in1 = numCells * Wij
-    val in2 = Wij * Wij
-    val in3 = in1 - in2
-    val in4 = math.sqrt(in3 / (numCells - 1))
-    val denominator = SXj * in4
-    val G = numerator / denominator
-    return G
+  def calcZ(
+      sumNPt: Int,
+      xMean: Double,
+      noN: Int,
+      std: Double,
+      numCells: Int
+  ): Double = {
+    val n = (sumNPt - (xMean * noN))
+    val d =
+      (std * Math.sqrt(((numCells * noN) - Math.pow(noN, 2)) / (numCells - 1)))
+    val zscore = n / d
+    return (zscore.toDouble)
   }
 
 }
