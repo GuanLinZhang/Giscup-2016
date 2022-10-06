@@ -57,48 +57,41 @@ object HotcellUtils {
   }
 
   // YOU NEED TO CHANGE THIS PART
-  def totalNeighbours(
-      x: Int,
-      y: Int,
-      z: Int,
-      xMin: Int,
-      yMin: Int,
-      zMin: Int,
-      xMax: Int,
-      yMax: Int,
-      zMax: Int
-  ): Int = {
-    var noN = 27
-    var offI = 0
-    val off = List(9, 6, 4)
-    if (x == xMin | x == xMax) {
-      noN -= off(offI)
-      offI += 1
-    }
-    if (y == yMin | y == yMax) {
-      noN -= off(offI)
-      offI += 1
-    }
-    if (z == zMin | z == zMax) {
-      noN -= off(offI)
-      offI += 1
-    }
-    noN = noN.toInt
-    return (noN)
+  /** Check whether two points are neighbor
+    */
+  def ST_Within(p1: Point, p2: Point): Boolean = {
+    val distance = 1 // the coordinate of cells has been normalized
+    (math.abs(p1.x - p2.x) <= distance) && (math.abs(
+      p1.y - p2.y
+    ) <= distance) &&
+    (math.abs(p1.z - p2.z) <= distance)
   }
 
-  def calcZ(
-      sumNPt: Int,
-      xMean: Double,
-      noN: Int,
-      std: Double,
-      numCells: Int
-  ): Double = {
-    val n = (sumNPt - (xMean * noN))
-    val d =
-      (std * Math.sqrt(((numCells * noN) - Math.pow(noN, 2)) / (numCells - 1)))
-    val zscore = n / d
-    return (zscore.toDouble)
+  def ConvertInputPoint(inputString: String, coordinateOffset: Int): Double = {
+    var result = 0.0
+    coordinateOffset match {
+      case 0 =>
+        result =
+          inputString.split(",")(0).replace("(", "").toDouble / coordinateStep
+      case 1 =>
+        result =
+          inputString.split(",")(1).replace(")", "").toDouble / coordinateStep
+      case 2 =>
+        // We only consider the data from 2009 to 2012 inclusively, 4 years in total. Week 0 Day 0 is 2009-01-01
+        val timestamp = HotcellUtils.timestampParser(inputString)
+        result =
+          HotcellUtils.dayOfMonth(timestamp) // Assume every month has 31 days
+    }
+    result
+  }
+
+  /** My custom Point object
+    */
+  case class Point(x: Double, y: Double, z: Double)
+
+  def parsePointStr(pointStr: String): Point = {
+    val p1 = pointStr.split(":") map { case (x) => x.toDouble }
+    Point(p1(0), p1(1), p1(2))
   }
 
 }

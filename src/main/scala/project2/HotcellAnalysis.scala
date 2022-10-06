@@ -69,60 +69,76 @@ object HotcellAnalysis {
     val numCells = (maxX - minX + 1) * (maxY - minY + 1) * (maxZ - minZ + 1)
 
     // YOU NEED TO CHANGE THIS PART
-    pickupInfo = pickupInfo
-      .groupBy("x", "y", "z")
-      .count()
-      .withColumnRenamed("count", "pointsCount")
-    pickupInfo.createOrReplaceTempView("pickupInfo")
-    val d = numCells.toDouble
-    val n = pickupInfo.agg(sum("pointsCount")).first().getLong(0).toDouble
-    val mx = n / d
-
-    val std = Math.sqrt(
-      (pickupInfo
-        .select(pow("pointsCount", 2) as "squarePointsCount")
-        .agg(sum("squarePointsCount"))
-        .first()
-        .getDouble(0) / numCells.toDouble) - Math.pow(mx, 2)
-    )
-    pickupInfo = spark.sql(
-      "SELECT PI1.x, PI1.y, PI1.z, SUM(PI2.pointsCount) AS sumNPt FROM pickupInfo AS PI1, pickupInfo AS PI2 WHERE PI2.x BETWEEN PI1.x-1 AND PI1.x+1 AND PI2.y BETWEEN PI1.y-1 AND PI1.y+1 AND PI2.z BETWEEN PI1.z-1 AND PI1.z+1 GROUP BY PI1.x, PI1.y, PI1.z"
-    )
-    pickupInfo.createOrReplaceTempView("pickupInfo")
-    spark.udf.register(
-      "totalNeighbours",
-      (
-          x: Int,
-          y: Int,
-          z: Int,
-          xMin: Int,
-          yMin: Int,
-          zMin: Int,
-          xMax: Int,
-          yMax: Int,
-          zMax: Int
-      ) =>
-        (HotcellUtils
-          .totalNeighbours(x, y, z, xMin, yMin, zMin, xMax, yMax, zMax))
-    )
-    pickupInfo = spark.sql(
-      "SELECT x, y, z, totalNeighbours(x, y, z, " + minX + "," + minY + "," + minZ + "," + maxX + "," + maxY + "," + maxY + ") as noN, sumNPt FROM pickupInfo"
-    )
-    pickupInfo.createOrReplaceTempView("pickupInfo")
-    spark.udf.register(
-      "calcZ",
-      (sumNPt: Int, mx: Double, noN: Int, std: Double, numCells: Int) =>
-        (HotcellUtils.calcZ(sumNPt, mx, noN, std, numCells))
-    )
-    pickupInfo = spark
-      .sql(
-        "SELECT x, y, z, calcZ(pickupInfo.sumNPt, " + mx + ", pickupInfo.noN, " + std + ", " + numCells + ") AS zscore " + "FROM pickupInfo"
+    // Filter input data to reduce noises
+    pickupInfo
+      .filter(
+        s"($minX <= x) AND (x <= $maxX) AND ($minY <= y) AND (y <= $maxY) AND ($minZ <= z) AND (z <= $maxZ)"
       )
-      .orderBy(desc("zscore"))
-      .select("x", "y", "z", "zscore")
-      .limit(50)
-    pickupInfo.show(50)
-    return pickupInfo
+      .createOrReplaceTempView("tmp_result")
+
+    // Count duplicates for each cell (this will be the term "x" in the equation of the G score)
+    val dfAttr = spark.sql(
+      "SELECT x, y, z, COUNT(*) AS attr FROM tmp_result GROUP BY x, y, z"
+    )
+    dfAttr.createOrReplaceTempView("tmp_result")
+
+    // Compute the X bar
+    val xBar =
+      dfAttr.agg(sum("attr")).first().getLong(0).toDouble / (numCells.toDouble)
+    // Compute the SD
+    val dfSquared =
+      spark.sql("SELECT power(attr, 2) AS squared FROM tmp_result")
+    val sd = math.sqrt(
+      dfSquared
+        .agg(sum("squared"))
+        .first()
+        .getDouble(0) / numCells.toDouble - math.pow(xBar, 2)
+    )
+
+    // Find neighbor cells and compute the total "hotness"
+    spark.udf.register(
+      "ST_Within",
+      (
+          x1: Double,
+          y1: Double,
+          z1: Double,
+          x2: Double,
+          y2: Double,
+          z2: Double
+      ) => {
+        val p1 = HotcellUtils.Point(x1, y1, z1)
+        val p2 = HotcellUtils.Point(x2, y2, z2)
+        HotcellUtils.ST_Within(p1, p2)
+      }
+    )
+    val dfNeighbors = spark.sql(
+      "SELECT " +
+        "    A.x AS x, A.y AS y, A.z AS z, " +
+        "    COUNT(B.attr) AS weight, SUM(B.attr) AS attrSum " +
+        "FROM tmp_result A, tmp_result B " +
+        "WHERE ST_Within(B.x, B.y, B.z, A.x, A.y, A.z) " +
+        "GROUP BY A.x, A.y, A.z"
+    )
+    dfNeighbors.createOrReplaceTempView("tmp_result")
+
+    // Compute the G Score
+    spark.udf.register(
+      "getGScore",
+      (attrVal: Int, n: Int, mean: Double, s: Double, weight: Double) =>
+        (attrVal.toDouble - (mean * weight)) / (s * math.sqrt(
+          ((n.toDouble * weight) - (weight * weight)) / (n.toDouble - 1.0)
+        ))
+    )
+    val dfScores = spark.sql(
+      s"SELECT x, y, z, getGScore(attrSum, $numCells, $xBar, $sd, weight) AS g FROM tmp_result"
+    )
+    dfScores.createOrReplaceTempView("tmp_result")
+
+    // Sort cells by the G Scores
+    var finalRes =
+      spark.sql(s"SELECT x, y, z, g FROM tmp_result ORDER BY g DESC")
+    finalRes = finalRes.drop("g")
+    finalRes
 
   }
 }
